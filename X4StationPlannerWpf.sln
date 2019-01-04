@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X4StationPlannerWpf", "X4StationPlannerWpf\X4StationPlannerWpf.csproj", "{7F2DDD36-FA08-48D2-8CA7-D2A81354B8BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "x4StationPlanner", "x4StationPlanner\x4StationPlanner.csproj", "{10DB792A-41D1-4897-BC86-744522D71A4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F2DDD36-FA08-48D2-8CA7-D2A81354B8BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F2DDD36-FA08-48D2-8CA7-D2A81354B8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F2DDD36-FA08-48D2-8CA7-D2A81354B8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F2DDD36-FA08-48D2-8CA7-D2A81354B8BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10DB792A-41D1-4897-BC86-744522D71A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10DB792A-41D1-4897-BC86-744522D71A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10DB792A-41D1-4897-BC86-744522D71A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10DB792A-41D1-4897-BC86-744522D71A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C27FA4A-6166-4487-9A36-B3391D1751DB}
+	EndGlobalSection
+EndGlobal
