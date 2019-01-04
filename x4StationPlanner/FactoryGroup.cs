@@ -49,8 +49,7 @@ namespace x4StationPlanner
             {
                 itemCount = value;
                 stationCount = value / Recipe.Amount;
-                NotifyPropertyChanged(nameof(ItemCount));
-                NotifyPropertyChanged(nameof(StationCount));
+                UpdateRow();
             }
         }
 
@@ -62,8 +61,7 @@ namespace x4StationPlanner
             {
                 stationCount = value;
                 itemCount = value * Recipe.Amount;
-                NotifyPropertyChanged(nameof(ItemCount));
-                NotifyPropertyChanged(nameof(StationCount));
+                UpdateRow();
             }
         }
 
@@ -92,5 +90,12 @@ namespace x4StationPlanner
                         y => new FactoryGroup(y.Key) { StationCount = y.Sum(z => z.stationCount) }
                     )
                     .ToList();
+
+        private void UpdateRow()
+        {
+            NotifyPropertyChanged(nameof(ItemCount));
+            NotifyPropertyChanged(nameof(StationCount));
+            NotifyPropertyChanged(nameof(StationCountCeil));
+        }
     }
 }
