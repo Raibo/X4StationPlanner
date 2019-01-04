@@ -23,7 +23,7 @@
         <DataGrid x:Name="DesiredFactories" AutoGenerateColumns="False" ItemsSource="{Binding DesiredFactoryGroups}" Grid.Row="1" Grid.Column="1"
                   RowBackground="#AAEE77"
                   AlternatingRowBackground="#77EEAA"
-                  CanUserResizeColumns="False" CanUserResizeRows="False" SelectionUnit="Cell" 
+                  CanUserResizeColumns="False" CanUserResizeRows="False"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Produced Item" Binding="{Binding Path=ItemName, Mode=OneWay}" Width="120"/>
@@ -37,7 +37,7 @@
         <DataGrid x:Name="RequiredFactories" AutoGenerateColumns="False" ItemsSource="{Binding RequiredFactoryGroups}" Grid.Row="1" Grid.Column="2"
                   RowBackground="#CCCCFF"
                   AlternatingRowBackground="#9999FF"
-                  CanUserResizeColumns="False" CanUserResizeRows="False" SelectionUnit="Cell"
+                  CanUserResizeColumns="False" CanUserResizeRows="False"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Produced Item" Binding="{Binding Path=ItemName, Mode=OneWay}" Width="120"/>
