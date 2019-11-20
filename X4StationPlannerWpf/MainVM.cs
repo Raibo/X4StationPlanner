@@ -8,7 +8,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Controls;
 using x4StationPlanner;
-using x4StationPlanner.Enums;
 
 namespace X4StationPlannerWpf
 {
@@ -16,12 +15,12 @@ namespace X4StationPlannerWpf
     {
         public MainVM()
         {
-            AddDesiredFactoryGroup = new DelegateCommand<Item?>((x) =>
+            AddDesiredFactoryGroup = new DelegateCommand<string>((x) =>
             {
                 try
                 {
-                    if (x.HasValue)
-                        _planner.AddDesiredFactoryGroup(new FactoryGroup(x.Value) { StationCount = 1 });
+                    if (!string.IsNullOrWhiteSpace(x))
+                        _planner.AddDesiredFactoryGroup(new FactoryGroup(x) { StationCount = 1 });
                 }
                 catch(Exception)
                 {
@@ -57,9 +56,9 @@ namespace X4StationPlannerWpf
         public ReadOnlyObservableCollection<FactoryGroup> RequiredFactoryGroups => _planner.RequiredFactoryGroups;
         public ObservableCollection<FactoryGroup> DesiredFactoryGroups => _planner.DesiredFactoryGroups;
 
-        public DelegateCommand<Item?> AddDesiredFactoryGroup { get; }
+        public DelegateCommand<string> AddDesiredFactoryGroup { get; }
         public DelegateCommand<int?> RemoveDesiredFactoryGroup { get; }
 
-        public IEnumerable<Item> ItemList => ((Item[])Enum.GetValues(typeof(Item))).OrderBy(x => x.ToString());
+        public IEnumerable<string> ItemList => x4StationPlanner.Maps.Map.RecipeMap.Keys.OrderBy(x => x.ToString());
     }
 }

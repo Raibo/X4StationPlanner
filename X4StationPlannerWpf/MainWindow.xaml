@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:X4StationPlannerWpf"
         mc:Ignorable="d"
-        Title="X4 Stations calculator" Height="450" Width="890" ResizeMode="NoResize">
+        Title="X4 Stations calculator" Height="450" Width="890" ResizeMode="CanResize" MinWidth="890" MaxWidth="890">
     <Window.DataContext>
         <local:MainVM/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="128"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="370"/>
             <ColumnDefinition Width="370"/>
             <ColumnDefinition/>
@@ -20,40 +20,73 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="415*"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Content="Remove" Command="{Binding RemoveDesiredFactoryGroup}"
+                    CommandParameter="{Binding ElementName=DesiredFactories, Path=SelectedIndex}"
+                    Height="23" VerticalAlignment="Top" Margin="0,5"/>
+            <Button Grid.Row="1" Content="Add" Command="{Binding AddDesiredFactoryGroup}"  Height="23" VerticalAlignment="Top" Margin="0,5"
+                    CommandParameter="{Binding ElementName=ItemBox, Path=SelectedValue}"/>
+            <ListBox Grid.Row="2" 
+                     x:Name="ItemBox" 
+                     ItemsSource="{Binding ItemList}"
+                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"
+                     MouseDoubleClick="ItemBox_MouseDoubleClick"
+                     Keyboard.KeyUp="ItemBox_KeyUp"
+                     >
+            </ListBox>
+        </Grid>
         <DataGrid x:Name="DesiredFactories" AutoGenerateColumns="False" ItemsSource="{Binding DesiredFactoryGroups}" Grid.Row="1" Grid.Column="1"
                   RowBackground="#AAEE77"
                   AlternatingRowBackground="#77EEAA"
                   CanUserResizeColumns="False" CanUserResizeRows="False"
-                  ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
+                <DataGridTemplateColumn Header=" " Width="18">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Height="18" Width="18" Source="{Binding Path=ImagePath}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Produced Item" Binding="{Binding Path=ItemName, Mode=OneWay}" Width="120"/>
-                <DataGridTextColumn Header="Item Count" Binding="{Binding Path=ItemCount, Mode=TwoWay, StringFormat={}{0:0.##},
+                <DataGridTextColumn Header="Items / hour" Binding="{Binding Path=ItemCount, Mode=TwoWay, StringFormat={}{0:0.##},
                     UpdateSourceTrigger=PropertyChanged}" Width="81"/>
-                <DataGridTextColumn Header="Station Count" Binding="{Binding Path=StationCount, Mode=TwoWay, StringFormat={}{0:0.##},
-                    UpdateSourceTrigger=PropertyChanged}" Width="81"/>
-                <DataGridTextColumn Header="Station Count*" Binding="{Binding Path=StationCountCeil, Mode=OneWay}" Width="81"/>
+                <DataGridTextColumn Header="Stations #.#" Binding="{Binding Path=StationCount, Mode=TwoWay, StringFormat={}{0:0.##},
+                    UpdateSourceTrigger=PropertyChanged}" Width="72"/>
+                <DataGridTextColumn Header="Stations #" Binding="{Binding Path=StationCountCeil, Mode=OneWay}" Width="72"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="RequiredFactories" AutoGenerateColumns="False" ItemsSource="{Binding RequiredFactoryGroups}" Grid.Row="1" Grid.Column="2"
                   RowBackground="#CCCCFF"
                   AlternatingRowBackground="#9999FF"
                   CanUserResizeColumns="False" CanUserResizeRows="False"
-                  ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
+                <DataGridTemplateColumn Header=" " Width="18">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Height="18" Width="18" Source="{Binding Path=ImagePath}"  />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                                        
                 <DataGridTextColumn Header="Produced Item" Binding="{Binding Path=ItemName, Mode=OneWay}" Width="120"/>
-                <DataGridTextColumn Header="Item Count" Binding="{Binding Path=ItemCount, Mode=OneWay, StringFormat={}{0:0.##}}" Width="81"/>
-                <DataGridTextColumn Header="Station Count" Binding="{Binding Path=StationCount, Mode=OneWay, StringFormat={}{0:0.##}}" Width="81"/>
-                <DataGridTextColumn Header="Station Count*" Binding="{Binding Path=StationCountCeil, Mode=OneWay}" Width="81"/>
+                <DataGridTextColumn Header="Items / hour" Binding="{Binding Path=ItemCount, Mode=OneWay, StringFormat={}{0:0.##}}" Width="81"/>
+                <DataGridTextColumn Header="Stations #.#" Binding="{Binding Path=StationCount, Mode=OneWay, StringFormat={}{0:0.##}}" Width="72"/>
+                <DataGridTextColumn Header="Stations #" Binding="{Binding Path=StationCountCeil, Mode=OneWay}" Width="72"/>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="1">
-            <Button Content="Remove" Command="{Binding RemoveDesiredFactoryGroup}"
-                    CommandParameter="{Binding ElementName=DesiredFactories, Path=SelectedIndex}"
-                    Height="23" VerticalAlignment="Top" Margin="0,5"/>
-            <Button Content="Add" Command="{Binding AddDesiredFactoryGroup}"  Height="23" VerticalAlignment="Top" Margin="0,5"
-                    CommandParameter="{Binding ElementName=ItemComboBox, Path=SelectedValue}"/>
-            <ComboBox x:Name="ItemComboBox" ItemsSource="{Binding ItemList}" 
-                      Height="23" VerticalAlignment="Top" Margin="0,5"/>
-        </StackPanel>
+
     </Grid>
 </Window>

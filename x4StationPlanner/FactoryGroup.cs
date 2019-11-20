@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
-using x4StationPlanner.Enums;
 using x4StationPlanner.Maps;
 using System;
 using System.ComponentModel;
@@ -10,7 +9,9 @@ namespace x4StationPlanner
 {
     public class FactoryGroup : INotifyPropertyChanged
     {
-        public FactoryGroup(Item item)
+        const string UnknownItemType = "Unknown";
+        const string ImagesPath = "Images";
+        public FactoryGroup(string item)
         {
             Item = item;
             try
@@ -19,15 +20,16 @@ namespace x4StationPlanner
             }
             catch(Exception)
             {
-                throw new Exception($"Missing item type for item [{item.ToString()}].");
+                ItemType = UnknownItemType;
             }
+
             try
             {
                 Recipe = Map.RecipeMap[Item];
             }
             catch(Exception)
             {
-                throw new ArgumentException($"Item [{item.ToString()}] can not be produced, perhaps recipe missing or item is mined.");
+                throw new ArgumentException($"Item [{item}] can not be produced, perhaps recipe missing or item is mined.");
             }
         }
 
@@ -35,11 +37,14 @@ namespace x4StationPlanner
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "") =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        public readonly Item Item;
-        public readonly ItemType ItemType;
+        public readonly string Item;
+        public readonly string ItemType;
         public readonly Recipe Recipe;
 
-        public string ItemName => Item.ToString();
+        public string ImagePath => $"{ImagesPath}\\{ItemType}";
+        // public string ImagePath => @"D:\Coding\Games\X4\X4StationPlanner\x4StationPlanner\Images\Energy.ico";
+
+        public string ItemName => Item;
 
         private double itemCount;
         public double ItemCount

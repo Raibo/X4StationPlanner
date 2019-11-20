@@ -100,6 +100,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Maps\ItemTypeMap.json" />
+    <None Include="Maps\RecipeMap.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -115,5 +117,15 @@
       <Name>x4StationPlanner</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Energy.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir "$(TargetDir)Images"
+mkdir "$(TargetDir)Maps"
+copy "$(SolutionDir)x4StationPlannerWPF\Images\Energy.jpg" "$(TargetDir)Images\Energy.jpg"
+copy "$(SolutionDir)x4StationPlannerWPF\Maps\ItemTypeMap.json" "$(TargetDir)Maps\ItemTypeMap.json"
+copy "$(SolutionDir)x4StationPlannerWPF\Maps\RecipeMap.json" "$(TargetDir)Maps\RecipeMap.json"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

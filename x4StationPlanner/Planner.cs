@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Prism.Mvvm;
-using x4StationPlanner.Enums;
 
 namespace x4StationPlanner
 {
@@ -34,8 +33,6 @@ namespace x4StationPlanner
                 DesiredFactoryGroups.RemoveAt(pos);
             RaisePropertyChanged(nameof(RequiredFactoryGroups));
         }
-
-        //TODO DeleteFactoryGroup, EditFactoryGroup
 
         private ObservableCollection<FactoryGroup> _requiredFactoryGroups = new ObservableCollection<FactoryGroup>();
 

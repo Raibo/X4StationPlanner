@@ -20,9 +20,26 @@ namespace X4StationPlannerWpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        readonly MainVM dataContext;
+
         public MainWindow()
         {
             InitializeComponent();
+            dataContext = (MainVM)DataContext;
+        }
+
+        private void ItemBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            dataContext.AddDesiredFactoryGroup.Execute(((ListBox)sender).SelectedItem.ToString());
+        }
+
+        private void ItemBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                dataContext.AddDesiredFactoryGroup.Execute(((ListBox)sender).SelectedItem.ToString());
+                e.Handled = true;
+            }
         }
     }
 }
