@@ -54,7 +54,7 @@
                 <DataGridTemplateColumn Header=" " Width="18">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Height="18" Width="18" Source="{Binding Path=ImagePath}"/>
+                            <Image Height="18" Width="18" Source="{Binding Path=ImagePath}" ToolTip="{Binding Path=ItemType}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -76,7 +76,7 @@
                 <DataGridTemplateColumn Header=" " Width="18">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Height="18" Width="18" Source="{Binding Path=ImagePath}"  />
+                            <Image Height="18" Width="18" Source="{Binding Path=ImagePath}" ToolTip="{Binding Path=ItemType}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

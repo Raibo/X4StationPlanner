@@ -120,11 +120,31 @@
   <ItemGroup>
     <Resource Include="Images\Energy.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\RefinedResource.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Intermediate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TechProduct.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FoodProduct.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Intermediate_Tech.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FoodIntermediate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Medical.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir "$(TargetDir)Images"
-mkdir "$(TargetDir)Maps"
-copy "$(SolutionDir)x4StationPlannerWPF\Images\Energy.jpg" "$(TargetDir)Images\Energy.jpg"
+    <PostBuildEvent>mkdir "$(TargetDir)Maps"
+copy "$(SolutionDir)x4StationPlannerWPF\Images" "$(TargetDir)Images"
 copy "$(SolutionDir)x4StationPlannerWPF\Maps\ItemTypeMap.json" "$(TargetDir)Maps\ItemTypeMap.json"
 copy "$(SolutionDir)x4StationPlannerWPF\Maps\RecipeMap.json" "$(TargetDir)Maps\RecipeMap.json"</PostBuildEvent>
   </PropertyGroup>

@@ -38,11 +38,11 @@ namespace x4StationPlanner
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public readonly string Item;
-        public readonly string ItemType;
+        public string ItemType { get; private set; }
         public readonly Recipe Recipe;
 
-        public string ImagePath => $"{ImagesPath}\\{ItemType}";
-        // public string ImagePath => @"D:\Coding\Games\X4\X4StationPlanner\x4StationPlanner\Images\Energy.ico";
+        public string ImagePath => $"{ImagesPath}\\{ItemType}.jpg";
+        //public string ImagePath => @"D:\Coding\Games\X4\X4StationPlanner\x4StationPlannerWPF\Images\Energy.jpg";
 
         public string ItemName => Item;
 
