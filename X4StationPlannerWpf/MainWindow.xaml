@@ -51,7 +51,7 @@
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                   ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header=" " Width="18">
+                <DataGridTemplateColumn Header=" " Width="18" SortMemberPath="SortIndex">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Height="18" Width="18" Source="{Binding Path=ImagePath}" ToolTip="{Binding Path=ItemType}"/>
@@ -73,7 +73,7 @@
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                   ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header=" " Width="18">
+                <DataGridTemplateColumn Header=" " Width="18" SortMemberPath="SortIndex">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Height="18" Width="18" Source="{Binding Path=ImagePath}" ToolTip="{Binding Path=ItemType}"/>

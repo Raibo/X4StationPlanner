@@ -39,6 +39,7 @@ namespace x4StationPlanner
 
         public readonly string Item;
         public string ItemType { get; private set; }
+        public int SortIndex => Map.ItemTypeSortMap.ContainsKey(ItemType) ? Map.ItemTypeSortMap[ItemType] : 0;
         public readonly Recipe Recipe;
 
         public string ImagePath => $"{ImagesPath}\\{ItemType}.jpg";

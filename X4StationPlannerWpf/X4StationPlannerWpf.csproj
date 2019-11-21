@@ -101,6 +101,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Maps\ItemTypeMap.json" />
+    <None Include="Maps\ItemTypeSortMap.json" />
     <None Include="Maps\RecipeMap.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -145,7 +146,6 @@
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(TargetDir)Maps"
 copy "$(SolutionDir)x4StationPlannerWPF\Images" "$(TargetDir)Images"
-copy "$(SolutionDir)x4StationPlannerWPF\Maps\ItemTypeMap.json" "$(TargetDir)Maps\ItemTypeMap.json"
-copy "$(SolutionDir)x4StationPlannerWPF\Maps\RecipeMap.json" "$(TargetDir)Maps\RecipeMap.json"</PostBuildEvent>
+copy "$(SolutionDir)x4StationPlannerWPF\Maps" "$(TargetDir)Maps"</PostBuildEvent>
   </PropertyGroup>
 </Project>

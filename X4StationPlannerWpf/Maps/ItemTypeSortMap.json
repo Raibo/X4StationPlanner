@@ -1,0 +1,9 @@
+{
+  "RefinedResource": 1,
+  "FoodIntermediate": 2,
+  "Intermediate": 3,
+  "FoodProduct": 4,
+  "Medical": 5,
+  "Intermediate_Tech": 6,
+  "TechProduct": 7
+}

@@ -85,7 +85,7 @@
       "Superfluid coolant": 560
     }
   },
-  "Quantum tubes": {
+  "Quantum tube": {
     "amount": 550,
     "ingredients": {
       "Energy cell": 200,
