@@ -6,16 +6,24 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Prism.Mvvm;
+using x4StationPlanner.Maps;
+using System.Windows.Controls;
 
 namespace x4StationPlanner
 {
     public class Planner : BindableBase
     {
-        public readonly ObservableCollection<FactoryGroup> DesiredFactoryGroups = new ObservableCollection<FactoryGroup>();
-        
+        public ObservableCollection<FactoryGroup> DesiredFactoryGroups = new ObservableCollection<FactoryGroup>();
+
         public Planner()
         {
             _RequiredFactoryGroups = new ReadOnlyObservableCollection<FactoryGroup>(_requiredFactoryGroups);
+
+            foreach (var kvp in Map.ItemFactionMap)
+                ItemFactions.Add(new ItemFaction { Item = kvp.Key, Faction = kvp.Value , Options = Map.RecipeMap[kvp.Key].Keys.ToList()});
+
+            foreach (INotifyPropertyChanged it in ItemFactions)
+                it.PropertyChanged += UpdateItemFactionSetting;
         }
 
         public void AddDesiredFactoryGroup(FactoryGroup factoryGroup)
@@ -46,6 +54,14 @@ namespace x4StationPlanner
                 _requiredFactoryGroups.AddRange(items);
                 return _RequiredFactoryGroups;
             }
+        }
+
+        public ObservableCollection<ItemFaction> ItemFactions = new ObservableCollection<ItemFaction>();
+
+        public void UpdateItemFactionSetting(object o, PropertyChangedEventArgs e)
+        {
+            var ItemFaction = (ItemFaction)o;
+            Map.ItemFactionMap[ItemFaction.Item] = ItemFaction.Faction;
         }
     }
 }

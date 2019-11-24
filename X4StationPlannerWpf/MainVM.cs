@@ -34,11 +34,11 @@ namespace X4StationPlannerWpf
             });
 
             _planner = new Planner();
-
+            
             DesiredFactoryGroups.CollectionChanged += (o, e) =>
             {
                 UpdateRequiredFactoryGroupsGui();
-
+                
                 if (e.OldItems != null)
                     foreach (INotifyPropertyChanged it in e.OldItems)
                         it.PropertyChanged -= (x, y) => UpdateRequiredFactoryGroupsGui();
@@ -47,9 +47,22 @@ namespace X4StationPlannerWpf
                     foreach (INotifyPropertyChanged it in e.NewItems)
                         it.PropertyChanged += (x, y) => UpdateRequiredFactoryGroupsGui();
             };
+
+            foreach (INotifyPropertyChanged it in ItemFactions)
+            {
+                it.PropertyChanged += UpdateStationsCount;
+                it.PropertyChanged += (x, y) => UpdateRequiredFactoryGroupsGui();
+            }
         }
 
         private void UpdateRequiredFactoryGroupsGui() => RaisePropertyChanged(nameof(RequiredFactoryGroups));
+
+        private void UpdateStationsCount(object o, PropertyChangedEventArgs e)
+        {
+            var items = DesiredFactoryGroups.Where(x => x.Item == ((ItemFaction)o).Item).ToList();
+            foreach (var it in items)
+                it.StationCount = it.ItemCount / it.Recipe.Amount;
+        }
 
         private Planner _planner;
 
@@ -60,5 +73,8 @@ namespace X4StationPlannerWpf
         public DelegateCommand<int?> RemoveDesiredFactoryGroup { get; }
 
         public IEnumerable<string> ItemList => x4StationPlanner.Maps.Map.RecipeMap.Keys.OrderBy(x => x.ToString());
+
+        public ObservableCollection<ItemFaction> ItemFactions => _planner.ItemFactions;
+
     }
 }

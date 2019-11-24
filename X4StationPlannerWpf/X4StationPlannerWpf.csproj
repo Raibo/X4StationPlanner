@@ -68,6 +68,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Factions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +79,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Factions.xaml.cs">
+      <DependentUpon>Factions.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainVM.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -100,8 +107,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Maps\ItemFactionMap.json" />
     <None Include="Maps\ItemTypeMap.json" />
     <None Include="Maps\ItemTypeSortMap.json" />
+    <None Include="Maps\FactionRecipeMap.json" />
     <None Include="Maps\RecipeMap.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -142,10 +151,15 @@
   <ItemGroup>
     <Resource Include="Images\Medical.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Faction_Argon.jpg" />
+    <Resource Include="Images\Faction_Common.jpg" />
+    <Resource Include="Images\Faction_Paranid.jpg" />
+    <Resource Include="Images\Faction_Teladi.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir "$(TargetDir)Maps"
-copy "$(SolutionDir)x4StationPlannerWPF\Images" "$(TargetDir)Images"
+    <PostBuildEvent>copy "$(SolutionDir)x4StationPlannerWPF\Images" "$(TargetDir)Images"
 copy "$(SolutionDir)x4StationPlannerWPF\Maps" "$(TargetDir)Maps"</PostBuildEvent>
   </PropertyGroup>
 </Project>

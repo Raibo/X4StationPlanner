@@ -22,15 +22,6 @@ namespace x4StationPlanner
             {
                 ItemType = UnknownItemType;
             }
-
-            try
-            {
-                Recipe = Map.RecipeMap[Item];
-            }
-            catch(Exception)
-            {
-                throw new ArgumentException($"Item [{item}] can not be produced, perhaps recipe missing or item is mined.");
-            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -39,11 +30,11 @@ namespace x4StationPlanner
 
         public readonly string Item;
         public string ItemType { get; private set; }
+        public string Faction => Map.ItemFactionMap[Item];
         public int SortIndex => Map.ItemTypeSortMap.ContainsKey(ItemType) ? Map.ItemTypeSortMap[ItemType] : 0;
-        public readonly Recipe Recipe;
+        public Recipe Recipe => Map.RecipeMap[Item][Faction];
 
         public string ImagePath => $"{ImagesPath}\\{ItemType}.jpg";
-        //public string ImagePath => @"D:\Coding\Games\X4\X4StationPlanner\x4StationPlannerWPF\Images\Energy.jpg";
 
         public string ItemName => Item;
 
@@ -97,7 +88,7 @@ namespace x4StationPlanner
                     )
                     .ToList();
 
-        private void UpdateRow()
+        public void UpdateRow()
         {
             NotifyPropertyChanged(nameof(ItemCount));
             NotifyPropertyChanged(nameof(StationCount));

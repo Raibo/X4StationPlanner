@@ -24,15 +24,6 @@
       }
     }
   },
-  "Teladianium": {
-    "Teladi": {
-      "Amount": 2400,
-      "Ingredients": {
-        "Energy cell": 1350,
-        "Ore": 8400
-      }
-    }
-  },
   "Refined metal": {
     "Common": {
       "Amount": 2400,
@@ -77,31 +68,15 @@
         "Graphene": 960,
         "Refined metal": 960
       }
-    },
-    "Teladi": {
-      "Amount": 720,
-      "Ingredients": {
-        "Energy cell": 600,
-        "Graphene": 960,
-        "Teladianium": 696
-      }
     }
   },
   "Engine part": {
     "Common": {
-      "Amount": 960,
+      "Amount": 480,
       "Ingredients": {
         "Antimatter cell": 320,
         "Energy cell": 240,
         "Refined metal": 384
-      }
-    },
-    "Teladi": {
-      "Amount": 960,
-      "Ingredients": {
-        "Antimatter cell": 320,
-        "Energy cell": 240,
-        "Teladianium": 280
       }
     }
   },
@@ -112,14 +87,6 @@
         "Energy cell": 320,
         "Graphene": 160,
         "Refined metal": 1120
-      }
-    },
-    "Teladi": {
-      "Amount": 1320,
-      "Ingredients": {
-        "Energy cell": 320,
-        "Graphene": 160,
-        "Teladianium": 816
       }
     }
   },
@@ -158,14 +125,6 @@
       "Ingredients": {
         "Energy cell": 360,
         "Refined metal": 600,
-        "Silicon wafer": 360
-      }
-    },
-    "Teladi": {
-      "Amount": 240,
-      "Ingredients": {
-        "Energy cell": 360,
-        "Teladianium": 438,
         "Silicon wafer": 360
       }
     }
@@ -274,7 +233,7 @@
     }
   },
   "Meat": {
-    "Argon": {
+    "Common": {
       "Amount": 1760,
       "Ingredients": {
         "Energy cell": 320,
@@ -292,7 +251,7 @@
     }
   },
   "Wheat": {
-    "Argon": {
+    "Common": {
       "Amount": 3240,
       "Ingredients": {
         "Energy cell": 360,
@@ -301,7 +260,7 @@
     }
   },
   "Food ration": {
-    "Argon": {
+    "Common": {
       "Amount": 4920,
       "Ingredients": {
         "Energy cell": 600,
@@ -312,7 +271,7 @@
     }
   },
   "Medical supply": {
-    "Argon": {
+    "Common": {
       "Amount": 1440,
       "Ingredients": {
         "Energy cell": 480,
@@ -320,93 +279,6 @@
         "Water": 720,
         "Wheat": 264
       }
-    },
-    "Teladi": {
-      "Amount": 1440,
-      "Ingredients": {
-        "Energy cell": 480,
-        "Spice": 360,
-        "Water": 720,
-        "Sunrise flower": 96
-      }
-    },
-    "Paranid": {
-      "Amount": 1440,
-      "Ingredients": {
-        "Energy cell": 480,
-        "Spice": 360,
-        "Water": 720,
-        "Soja bean": 120
-      }
-    }
-  },
-  "Maja snail": {
-    "Paranid": {
-      "Amount": 1392,
-      "Ingredients": {
-        "Energy cell": 320,
-        "Water": 800
-      }
-    }
-  },
-  "Soja bean": {
-    "Paranid": {
-      "Amount": 1440,
-      "Ingredients": {
-        "Energy cell": 360,
-        "Water": 960
-      }
-    }
-  },
-  "Sunrise flower": {
-    "Teladi": {
-      "Amount": 1200,
-      "Ingredients": {
-        "Energy cell": 360,
-        "Water": 960
-      }
-    }
-  },
-  "Swamp plant": {
-    "Teladi": {
-      "Amount": 960,
-      "Ingredients": {
-        "Energy cell": 320,
-        "Water": 800
-      }
-    }
-  },
-  "Nostrop oil": {
-    "Teladi": {
-      "Amount": 3840,
-      "Ingredients": {
-        "Energy cell": 480,
-        "Spice": 240,
-        "Sunrise flower": 480,
-        "Water": 480
-      }
-    }
-  },
-  "Soja husk": {
-    "Paranid": {
-      "Amount": 3840,
-      "Ingredients": {
-        "Energy cell": 480,
-        "Maja snail": 480,
-        "Soja bean": 480,
-        "Spice": 240
-      }
-    }
-  },
-  "Spaceweed": {
-    "Teladi": {
-      "Amount": 1350,
-      "Ingredients": {
-        "Energy cell": 840,
-        "Spice": 240,
-        "Swamp plant": 720
-      }
     }
   }
-
 }

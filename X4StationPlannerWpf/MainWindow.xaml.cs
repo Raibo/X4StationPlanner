@@ -21,12 +21,22 @@ namespace X4StationPlannerWpf
     public partial class MainWindow : Window
     {
         readonly MainVM dataContext;
+        readonly Factions factionsWindow = new Factions();
 
         public MainWindow()
         {
             InitializeComponent();
             dataContext = (MainVM)DataContext;
+            factionsWindow.DataContext = DataContext;
+            Closed += MainWindow_Closed;
         }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            factionsWindow.timeToClose = true;
+            factionsWindow.Close();
+        }
+
 
         private void ItemBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -40,6 +50,11 @@ namespace X4StationPlannerWpf
                 dataContext.AddDesiredFactoryGroup.Execute(((ListBox)sender).SelectedItem.ToString());
                 e.Handled = true;
             }
+        }
+
+        private void Button_Factions_Click(object sender, RoutedEventArgs e)
+        {
+            factionsWindow.Show();
         }
     }
 }
