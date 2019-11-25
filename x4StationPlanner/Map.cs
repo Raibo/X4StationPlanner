@@ -23,5 +23,11 @@ namespace x4StationPlanner.Maps
             ItemTypeSortMap = JsonConvert.DeserializeObject<Dictionary<string, int>>(File.ReadAllText(ItemTypeSortMapPath));
             ItemFactionMap = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(ItemFactionMapPath));
         }
+
+        public static void SaveFactionSettings()
+        {
+            var text = JsonConvert.SerializeObject(ItemFactionMap, Formatting.Indented);
+            File.WriteAllText(ItemFactionMapPath, text);
+        }
     }
 }

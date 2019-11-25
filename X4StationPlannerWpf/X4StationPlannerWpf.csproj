@@ -159,7 +159,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(SolutionDir)x4StationPlannerWPF\Images" "$(TargetDir)Images"
-copy "$(SolutionDir)x4StationPlannerWPF\Maps" "$(TargetDir)Maps"</PostBuildEvent>
+    <PostBuildEvent>mkdir "$(TargetDir)Images"
+mkdir "$(TargetDir)Maps"
+copy "$(SolutionDir)x4StationPlannerWPF\Images\" "$(TargetDir)Images\"
+copy "$(SolutionDir)x4StationPlannerWPF\Maps\" "$(TargetDir)Maps\"</PostBuildEvent>
   </PropertyGroup>
 </Project>

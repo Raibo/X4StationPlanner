@@ -43,5 +43,5 @@
   "Water": "RefinedResource",
   "Weapon component": "TechProduct",
   "Wheat": "FoodIntermediate",
-  "Teladianium": "Intermediate"
+  "Teladianium": "RefinedResource"
 }

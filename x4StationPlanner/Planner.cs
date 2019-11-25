@@ -19,7 +19,7 @@ namespace x4StationPlanner
         {
             _RequiredFactoryGroups = new ReadOnlyObservableCollection<FactoryGroup>(_requiredFactoryGroups);
 
-            foreach (var kvp in Map.ItemFactionMap)
+            foreach (var kvp in Map.ItemFactionMap.Where(x => Map.RecipeMap[x.Key].Keys.Count > 1))
                 ItemFactions.Add(new ItemFaction { Item = kvp.Key, Faction = kvp.Value , Options = Map.RecipeMap[kvp.Key].Keys.ToList()});
 
             foreach (INotifyPropertyChanged it in ItemFactions)
@@ -62,6 +62,19 @@ namespace x4StationPlanner
         {
             var ItemFaction = (ItemFaction)o;
             Map.ItemFactionMap[ItemFaction.Item] = ItemFaction.Faction;
+        }
+
+        public IEnumerable<ItemQuantity> TotalRawResources
+        {
+            get
+            {
+                var rez = new Dictionary<string, double>();
+                foreach (var it in _requiredFactoryGroups)
+                    foreach (var it2 in it.RawResources)
+                        if (rez.ContainsKey(it2.Key)) rez[it2.Key] += it2.Value * it.StationCount; 
+                        else rez[it2.Key] = it2.Value * it.StationCount;
+                return rez.AsEnumerable().Select(x => new ItemQuantity(x.Key, x.Value));
+            }
         }
     }
 }

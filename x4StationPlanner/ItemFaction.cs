@@ -20,6 +20,7 @@ namespace x4StationPlanner
             {
                 NotifyPropertyChanged();
                 NotifyPropertyChanged("RequiredFactoryGroups");
+                NotifyPropertyChanged(nameof(ImagePath));
                 faction = value;
             } 
         }

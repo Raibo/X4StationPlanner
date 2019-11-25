@@ -19,7 +19,7 @@
     "Common": {
       "Amount": 1650,
       "Ingredients": {
-        "Enegry cell": 1200,
+        "Energy cell": 1200,
         "Methane": 4800
       }
     }
@@ -228,7 +228,7 @@
       "Amount": 1320,
       "Ingredients": {
         "Advanced composite": 8,
-        "Enegry cell": 80,
+        "Energy cell": 80,
         "Hull part": 8
       }
     }

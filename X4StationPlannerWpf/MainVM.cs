@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Controls;
 using x4StationPlanner;
+using x4StationPlanner.Maps;
 
 namespace X4StationPlannerWpf
 {
@@ -55,7 +56,13 @@ namespace X4StationPlannerWpf
             }
         }
 
-        private void UpdateRequiredFactoryGroupsGui() => RaisePropertyChanged(nameof(RequiredFactoryGroups));
+        ~MainVM() => Map.SaveFactionSettings();
+
+        private void UpdateRequiredFactoryGroupsGui()
+        {
+            RaisePropertyChanged(nameof(RequiredFactoryGroups));
+            RaisePropertyChanged(nameof(TotalRawResources));
+        }
 
         private void UpdateStationsCount(object o, PropertyChangedEventArgs e)
         {
@@ -72,9 +79,11 @@ namespace X4StationPlannerWpf
         public DelegateCommand<string> AddDesiredFactoryGroup { get; }
         public DelegateCommand<int?> RemoveDesiredFactoryGroup { get; }
 
-        public IEnumerable<string> ItemList => x4StationPlanner.Maps.Map.RecipeMap.Keys.OrderBy(x => x.ToString());
+        public IEnumerable<string> ItemList => Map.RecipeMap.Keys.OrderBy(x => x.ToString());
 
         public ObservableCollection<ItemFaction> ItemFactions => _planner.ItemFactions;
+
+        public ObservableCollection<ItemQuantity> TotalRawResources => new ObservableCollection<ItemQuantity>(_planner.TotalRawResources);
 
     }
 }

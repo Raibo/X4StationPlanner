@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:X4StationPlannerWpf"
         mc:Ignorable="d"
-        Title="X4 Stations calculator" Height="450" Width="890" ResizeMode="CanResize" MinWidth="890" MaxWidth="890">
+        Title="X4 Stations calculator" Height="450" Width="1100" ResizeMode="CanResize" MinWidth="1100" MaxWidth="1100">
     <Window.DataContext>
         <local:MainVM/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="370"/>
-            <ColumnDefinition Width="370"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="373"/>
+            <ColumnDefinition Width="373"/>
+            <ColumnDefinition Width="193"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
@@ -30,13 +30,13 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="0" Content="Factions" Height="23" VerticalAlignment="Center"
+            <Button Grid.Row="0" Content="Station's factions" Height="23" VerticalAlignment="Center"
                     Click="Button_Factions_Click"/>
-            <Button Grid.Row="1" Grid.Column="0" Content="Remove" VerticalAlignment="Center"
+            <Button Grid.Row="1" Grid.Column="0" Content="Remove ware" VerticalAlignment="Center"
                     Command="{Binding RemoveDesiredFactoryGroup}"
                     CommandParameter="{Binding ElementName=DesiredFactories, Path=SelectedIndex}"
                     Height="23"/>
-            <Button Grid.Row="2" Content="Add" Command="{Binding AddDesiredFactoryGroup}"  Height="23" VerticalAlignment="Center"
+            <Button Grid.Row="2" Content="Add ware" Command="{Binding AddDesiredFactoryGroup}"  Height="23" VerticalAlignment="Center"
                     CommandParameter="{Binding ElementName=ItemBox, Path=SelectedValue}"/>
             <ListBox Grid.Row="3" 
                      x:Name="ItemBox" 
@@ -62,12 +62,12 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Produced Item" Binding="{Binding Path=ItemName, Mode=OneWay}" Width="120"/>
+                <DataGridTextColumn Header="Produced Item" Binding="{Binding Path=ItemName, Mode=OneWay}" Width="119"/>
                 <DataGridTextColumn Header="Items / hour" Binding="{Binding Path=ItemCount, Mode=TwoWay, StringFormat={}{0:0.##},
-                    UpdateSourceTrigger=PropertyChanged}" Width="81"/>
+                    UpdateSourceTrigger=PropertyChanged}" Width="75"/>
                 <DataGridTextColumn Header="Stations #.#" Binding="{Binding Path=StationCount, Mode=TwoWay, StringFormat={}{0:0.##},
                     UpdateSourceTrigger=PropertyChanged}" Width="72"/>
-                <DataGridTextColumn Header="Stations #" Binding="{Binding Path=StationCountCeil, Mode=OneWay}" Width="72"/>
+                <DataGridTextColumn Header="Stations #" Binding="{Binding Path=StationCountCeil, Mode=OneWay}" Width="62"/>
             </DataGrid.Columns>
         </DataGrid>
         
@@ -86,10 +86,22 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                                         
-                <DataGridTextColumn Header="Produced Item" Binding="{Binding Path=ItemName, Mode=OneWay}" Width="120"/>
-                <DataGridTextColumn Header="Items / hour" Binding="{Binding Path=ItemCount, Mode=OneWay, StringFormat={}{0:0.##}}" Width="81"/>
+                <DataGridTextColumn Header="Produced Item" Binding="{Binding Path=ItemName, Mode=OneWay}" Width="119"/>
+                <DataGridTextColumn Header="Items / hour" Binding="{Binding Path=ItemCount, Mode=OneWay, StringFormat={}{0:0.##}}" Width="75"/>
                 <DataGridTextColumn Header="Stations #.#" Binding="{Binding Path=StationCount, Mode=OneWay, StringFormat={}{0:0.##}}" Width="72"/>
-                <DataGridTextColumn Header="Stations #" Binding="{Binding Path=StationCountCeil, Mode=OneWay}" Width="72"/>
+                <DataGridTextColumn Header="Stations #" Binding="{Binding Path=StationCountCeil, Mode=OneWay}" Width="62"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="RawResources" AutoGenerateColumns="False" ItemsSource="{Binding TotalRawResources}" Grid.Row="1" Grid.Column="3"
+                  RowBackground="#CCCCFF"
+                  AlternatingRowBackground="#9999FF"
+                  CanUserResizeColumns="False" CanUserResizeRows="False"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Consumed Item" Binding="{Binding Path=Item, Mode=OneWay}" Width="93"/>
+                <DataGridTextColumn Header="Items / hour" Binding="{Binding Path=Quantity, Mode=OneWay, StringFormat={}{0:0.##}}" Width="75"/>
             </DataGrid.Columns>
         </DataGrid>
 

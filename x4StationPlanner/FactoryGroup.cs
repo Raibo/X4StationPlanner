@@ -88,6 +88,18 @@ namespace x4StationPlanner
                     )
                     .ToList();
 
+        public Dictionary<string, double> RawResources
+        {
+            get
+            {
+                var rez = new Dictionary<string, double>();
+                foreach (var it in Recipe.Ingredients)
+                    if (!Map.RecipeMap.Keys.Contains(it.Key))
+                        rez.Add(it.Key, it.Value);
+                return rez;
+            }
+        }
+
         public void UpdateRow()
         {
             NotifyPropertyChanged(nameof(ItemCount));
