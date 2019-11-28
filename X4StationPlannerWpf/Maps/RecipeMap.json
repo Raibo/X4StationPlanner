@@ -2,6 +2,8 @@
   "Energy cell": {
     "Common": {
       "Amount": 12000,
+      "WorkforceMultiplier": 1.25,
+      "WorkforceCapacity": 60,
       "Ingredients": {
       }
     }
@@ -9,6 +11,8 @@
   "Antimatter cell": {
     "Common": {
       "Amount": 3300,
+      "WorkforceMultiplier": 1.21,
+      "WorkforceCapacity": 120,
       "Ingredients": {
         "Energy cell": 3000,
         "Hydrogen": 9600
@@ -18,6 +22,8 @@
   "Graphene": {
     "Common": {
       "Amount": 1650,
+      "WorkforceMultiplier": 1.27,
+      "WorkforceCapacity": 120,
       "Ingredients": {
         "Energy cell": 1200,
         "Methane": 4800
@@ -27,6 +33,8 @@
   "Teladianium": {
     "Teladi": {
       "Amount": 2400,
+      "WorkforceMultiplier": 1.25,
+      "WorkforceCapacity": 180,
       "Ingredients": {
         "Energy cell": 1350,
         "Ore": 8400
@@ -36,6 +44,8 @@
   "Refined metal": {
     "Common": {
       "Amount": 2400,
+      "WorkforceMultiplier": 1.25,
+      "WorkforceCapacity": 150,
       "Ingredients": {
         "Energy cell": 2160,
         "Ore": 5760
@@ -45,6 +55,8 @@
   "Silicon wafer": {
     "Common": {
       "Amount": 2400,
+      "WorkforceMultiplier": 1.22,
+      "WorkforceCapacity": 150,
       "Ingredients": {
         "Energy cell": 1800,
         "Silicon": 4800
@@ -54,6 +66,8 @@
   "Superfluid coolant": {
     "Common": {
       "Amount": 1650,
+      "WorkforceMultiplier": 1.28,
+      "WorkforceCapacity": 120,
       "Ingredients": {
         "Energy cell": 900,
         "Helium": 4800
@@ -63,6 +77,8 @@
   "Water": {
     "Common": {
       "Amount": 6600,
+      "WorkforceMultiplier": 1.25,
+      "WorkforceCapacity": 120,
       "Ingredients": {
         "Energy cell": 1800,
         "Ice": 9600
@@ -72,6 +88,8 @@
   "Advanced composite": {
     "Common": {
       "Amount": 720,
+      "WorkforceMultiplier": 1.2,
+      "WorkforceCapacity": 210,
       "Ingredients": {
         "Energy cell": 600,
         "Graphene": 960,
@@ -80,6 +98,8 @@
     },
     "Teladi": {
       "Amount": 720,
+      "WorkforceMultiplier": 1.2,
+      "WorkforceCapacity": 210,
       "Ingredients": {
         "Energy cell": 600,
         "Graphene": 960,
@@ -90,6 +110,8 @@
   "Engine part": {
     "Common": {
       "Amount": 960,
+      "WorkforceMultiplier": 1.27,
+      "WorkforceCapacity": 150,
       "Ingredients": {
         "Antimatter cell": 320,
         "Energy cell": 240,
@@ -98,6 +120,8 @@
     },
     "Teladi": {
       "Amount": 960,
+      "WorkforceMultiplier": 1.27,
+      "WorkforceCapacity": 150,
       "Ingredients": {
         "Antimatter cell": 320,
         "Energy cell": 240,
@@ -108,6 +132,8 @@
   "Hull part": {
     "Common": {
       "Amount": 880,
+      "WorkforceMultiplier": 1.22,
+      "WorkforceCapacity": 180,
       "Ingredients": {
         "Energy cell": 320,
         "Graphene": 160,
@@ -116,6 +142,8 @@
     },
     "Teladi": {
       "Amount": 1320,
+      "WorkforceMultiplier": 1.22,
+      "WorkforceCapacity": 180,
       "Ingredients": {
         "Energy cell": 320,
         "Graphene": 160,
@@ -126,6 +154,8 @@
   "Microchip": {
     "Common": {
       "Amount": 480,
+      "WorkforceMultiplier": 1.22,
+      "WorkforceCapacity": 300,
       "Ingredients": {
         "Energy cell": 300,
         "Silicon wafer": 1200
@@ -135,6 +165,8 @@
   "Plasma conductor": {
     "Common": {
       "Amount": 200,
+      "WorkforceMultiplier": 1.25,
+      "WorkforceCapacity": 150,
       "Ingredients": {
         "Energy cell": 240,
         "Graphene": 384,
@@ -145,6 +177,8 @@
   "Quantum tube": {
     "Common": {
       "Amount": 550,
+      "WorkforceMultiplier": 1.3,
+      "WorkforceCapacity": 150,
       "Ingredients": {
         "Energy cell": 200,
         "Graphene": 580,
@@ -155,6 +189,8 @@
   "Scanning array": {
     "Common": {
       "Amount": 240,
+      "WorkforceMultiplier": 1.24,
+      "WorkforceCapacity": 210,
       "Ingredients": {
         "Energy cell": 360,
         "Refined metal": 600,
@@ -163,6 +199,8 @@
     },
     "Teladi": {
       "Amount": 240,
+      "WorkforceMultiplier": 1.24,
+      "WorkforceCapacity": 210,
       "Ingredients": {
         "Energy cell": 360,
         "Teladianium": 438,
@@ -173,6 +211,8 @@
   "Advanced electronics": {
     "Common": {
       "Amount": 300,
+      "WorkforceMultiplier": 1.22,
+      "WorkforceCapacity": 360,
       "Ingredients": {
         "Energy cell": 300,
         "Microchip": 220,
@@ -183,6 +223,8 @@
   "Antimatter converter": {
     "Common": {
       "Amount": 1800,
+      "WorkforceMultiplier": 1.23,
+      "WorkforceCapacity": 720,
       "Ingredients": {
         "Advanced composite": 240,
         "Energy cell": 960,
@@ -193,6 +235,8 @@
   "Claytronics": {
     "Common": {
       "Amount": 480,
+      "WorkforceMultiplier": 1.2,
+      "WorkforceCapacity": 810,
       "Ingredients": {
         "Antimatter cell": 400,
         "Energy cell": 560,
@@ -204,6 +248,8 @@
   "Drone component": {
     "Common": {
       "Amount": 360,
+      "WorkforceMultiplier": 1.25,
+      "WorkforceCapacity": 450,
       "Ingredients": {
         "Energy cell": 180,
         "Engine part": 60,
@@ -216,6 +262,8 @@
   "Field coil": {
     "Common": {
       "Amount": 1200,
+      "WorkforceMultiplier": 1.25,
+      "WorkforceCapacity": 540,
       "Ingredients": {
         "Energy cell": 360,
         "Plasma conductor": 240,
@@ -226,6 +274,8 @@
   "Missile component": {
     "Common": {
       "Amount": 1320,
+      "WorkforceMultiplier": 1.3,
+      "WorkforceCapacity": 15,
       "Ingredients": {
         "Advanced composite": 8,
         "Energy cell": 80,
@@ -236,6 +286,8 @@
   "Shield component": {
     "Common": {
       "Amount": 660,
+      "WorkforceMultiplier": 1.25,
+      "WorkforceCapacity": 150,
       "Ingredients": {
         "Energy cell": 210,
         "Plasma conductor": 60,
@@ -246,6 +298,8 @@
   "Smart chip": {
     "Common": {
       "Amount": 480,
+      "WorkforceMultiplier": 1.22,
+      "WorkforceCapacity": 40,
       "Ingredients": {
         "Energy cell": 300,
         "Silicon wafer": 120
@@ -255,6 +309,8 @@
   "Turret component": {
     "Common": {
       "Amount": 400,
+      "WorkforceMultiplier": 1.3,
+      "WorkforceCapacity": 150,
       "Ingredients": {
         "Energy cell": 120,
         "Microchip": 40,
@@ -266,6 +322,8 @@
   "Weapon component": {
     "Common": {
       "Amount": 400,
+      "WorkforceMultiplier": 1.3,
+      "WorkforceCapacity": 150,
       "Ingredients": {
         "Energy cell": 120,
         "Hull part": 40,
@@ -276,6 +334,8 @@
   "Meat": {
     "Argon": {
       "Amount": 1760,
+      "WorkforceMultiplier": 1.33,
+      "WorkforceCapacity": 75,
       "Ingredients": {
         "Energy cell": 320,
         "Water": 800
@@ -285,6 +345,8 @@
   "Spice": {
     "Common": {
       "Amount": 2880,
+      "WorkforceMultiplier": 1.4,
+      "WorkforceCapacity": 60,
       "Ingredients": {
         "Energy cell": 240,
         "Water": 480
@@ -294,6 +356,8 @@
   "Wheat": {
     "Argon": {
       "Amount": 3240,
+      "WorkforceMultiplier": 1.28,
+      "WorkforceCapacity": 75,
       "Ingredients": {
         "Energy cell": 360,
         "Water": 960
@@ -303,6 +367,8 @@
   "Food ration": {
     "Argon": {
       "Amount": 4920,
+      "WorkforceMultiplier": 1.25,
+      "WorkforceCapacity": 90,
       "Ingredients": {
         "Energy cell": 600,
         "Meat": 600,
@@ -314,6 +380,8 @@
   "Medical supply": {
     "Argon": {
       "Amount": 1440,
+      "WorkforceMultiplier": 1.28,
+      "WorkforceCapacity": 90,
       "Ingredients": {
         "Energy cell": 480,
         "Spice": 360,
@@ -323,6 +391,8 @@
     },
     "Teladi": {
       "Amount": 1440,
+      "WorkforceMultiplier": 1.28,
+      "WorkforceCapacity": 90,
       "Ingredients": {
         "Energy cell": 480,
         "Spice": 360,
@@ -332,6 +402,8 @@
     },
     "Paranid": {
       "Amount": 1440,
+      "WorkforceMultiplier": 1.28,
+      "WorkforceCapacity": 90,
       "Ingredients": {
         "Energy cell": 480,
         "Spice": 360,
@@ -343,6 +415,8 @@
   "Maja snail": {
     "Paranid": {
       "Amount": 1392,
+      "WorkforceMultiplier": 1.33,
+      "WorkforceCapacity": 78,
       "Ingredients": {
         "Energy cell": 320,
         "Water": 800
@@ -352,6 +426,8 @@
   "Soja bean": {
     "Paranid": {
       "Amount": 1440,
+      "WorkforceMultiplier": 1.28,
+      "WorkforceCapacity": 78,
       "Ingredients": {
         "Energy cell": 360,
         "Water": 960
@@ -361,6 +437,8 @@
   "Sunrise flower": {
     "Teladi": {
       "Amount": 1200,
+      "WorkforceMultiplier": 1.28,
+      "WorkforceCapacity": 75,
       "Ingredients": {
         "Energy cell": 360,
         "Water": 960
@@ -370,6 +448,8 @@
   "Swamp plant": {
     "Teladi": {
       "Amount": 960,
+      "WorkforceMultiplier": 1.33,
+      "WorkforceCapacity": 75,
       "Ingredients": {
         "Energy cell": 320,
         "Water": 800
@@ -379,6 +459,8 @@
   "Nostrop oil": {
     "Teladi": {
       "Amount": 3840,
+      "WorkforceMultiplier": 1.2,
+      "WorkforceCapacity": 120,
       "Ingredients": {
         "Energy cell": 480,
         "Spice": 240,
@@ -390,6 +472,8 @@
   "Soja husk": {
     "Paranid": {
       "Amount": 3840,
+      "WorkforceMultiplier": 1.22,
+      "WorkforceCapacity": 99,
       "Ingredients": {
         "Energy cell": 480,
         "Maja snail": 480,
@@ -401,6 +485,8 @@
   "Spaceweed": {
     "Teladi": {
       "Amount": 1350,
+      "WorkforceMultiplier": 1.38,
+      "WorkforceCapacity": 90,
       "Ingredients": {
         "Energy cell": 840,
         "Spice": 240,
