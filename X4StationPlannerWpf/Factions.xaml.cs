@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using x4StationPlanner;
 
 namespace X4StationPlannerWpf
 {
@@ -34,6 +35,24 @@ namespace X4StationPlannerWpf
                 Hide();
                 e.Cancel = true;
             }
+        }
+
+        private void WorkForceCheckbox_Checked(object sender, RoutedEventArgs e)
+        {
+            ((MainVM)DataContext).CheckAllWorkforce(true);
+            // only two in a row work
+            FactionsGrid.CancelEdit();
+            FactionsGrid.CancelEdit();
+            CollectionViewSource.GetDefaultView(FactionsGrid.ItemsSource).Refresh();
+        }
+
+        private void WorkForceCheckbox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ((MainVM)DataContext).CheckAllWorkforce(false);
+            // only two in a row work
+            FactionsGrid.CancelEdit();
+            FactionsGrid.CancelEdit();
+            CollectionViewSource.GetDefaultView(FactionsGrid.ItemsSource).Refresh();
         }
     }
 }

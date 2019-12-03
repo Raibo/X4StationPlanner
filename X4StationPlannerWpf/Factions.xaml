@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:X4StationPlannerWpf"
         mc:Ignorable="d"
-        Title="Factions" Height="300" Width="300" WindowStyle="ToolWindow" MinWidth="300" MaxWidth="300">
+        Title="Settings" Height="300" Width="366" WindowStyle="ToolWindow" MinWidth="366" MaxWidth="366" ShowInTaskbar="False">
 
     <Grid HorizontalAlignment="Left" Width="Auto">
         <Grid.RowDefinitions>
@@ -18,12 +18,12 @@
 
         <TextBlock Grid.Row="0" TextWrapping="NoWrap" IsEnabled="False" Padding="5">
             Configure which faction recipe to use for each ware.
-            <LineBreak/>
-            Only wares with any choice are shown.
         </TextBlock>
 
-        <DataGrid x:Name="FactionsGrid" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ItemFactions}" AutoGenerateColumns="False" 
-                  CanUserAddRows="False" CanUserDeleteRows="False" Width="Auto" CanUserResizeColumns="False">
+        <DataGrid x:Name="FactionsGrid" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ItemsSettings}" AutoGenerateColumns="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" Width="Auto" CanUserResizeColumns="False"
+                  RowBackground="#a4eefc"
+                  AlternatingRowBackground="#47d1ff">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Item" Binding="{Binding Path=Item, Mode=OneWay}"/>
                 <DataGridTemplateColumn Header=" " Width="18">
@@ -33,15 +33,32 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTextColumn Header="F#" Binding="{Binding Path=Options.Count}"/>
                 <DataGridTemplateColumn Header="Faction">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ComboBox ItemsSource="{Binding Path=Options}"
                                       SelectedValue="{Binding Path=Faction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                      SelectedItem="{Binding Path=Faction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                      SelectedItem="{Binding Path=Faction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" Height="14" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridCheckBoxColumn Binding="{Binding Path=RespectWorkforce, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridCheckBoxColumn.Header>
+                        <TextBlock Height="15" IsEnabled="True" Padding="0,0,0,3">
+                            Workforce 
+                            <CheckBox Margin="0,0,0,-3" Checked="WorkForceCheckbox_Checked"
+                                      Unchecked="WorkForceCheckbox_Unchecked"/> 
+                        </TextBlock>
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
             </DataGrid.Columns>
 
         </DataGrid>

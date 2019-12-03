@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:X4StationPlannerWpf"
         mc:Ignorable="d"
-        Title="X4 Stations calculator" Height="450" Width="1100" ResizeMode="CanResize" MinWidth="1100" MaxWidth="1100">
+        Title="X4 Stations calculator" Height="450" Width="1105" ResizeMode="CanResize" MinWidth="1105" MaxWidth="1105">
     <Window.DataContext>
         <local:MainVM/>
     </Window.DataContext>
@@ -30,7 +30,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="0" Content="Station's factions" Height="23" VerticalAlignment="Center"
+            <Button Grid.Row="0" Content="Settings" Height="23" VerticalAlignment="Center"
                     Click="Button_Factions_Click"/>
             <Button Grid.Row="1" Grid.Column="0" Content="Remove ware" VerticalAlignment="Center"
                     Command="{Binding RemoveDesiredFactoryGroup}"

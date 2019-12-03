@@ -67,7 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemFaction.cs" />
+    <Compile Include="ItemSettings.cs" />
     <Compile Include="ItemQuantity.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="FactoryGroup.cs" />

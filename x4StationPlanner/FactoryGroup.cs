@@ -30,22 +30,21 @@ namespace x4StationPlanner
 
         public readonly string Item;
         public string ItemType { get; private set; }
+        public bool RespectWorkforce => Map.ItemWorkforceMap[Item];
         public string Faction => Map.ItemFactionMap[Item];
         public int SortIndex => Map.ItemTypeSortMap.ContainsKey(ItemType) ? Map.ItemTypeSortMap[ItemType] : 0;
         public Recipe Recipe => Map.RecipeMap[Item][Faction];
+        public double Amount => RespectWorkforce? Recipe.Amount * Recipe.WorkforceMultiplier : Recipe.Amount;
 
         public string ImagePath => $"{ImagesPath}\\{ItemType}.jpg";
 
         public string ItemName => Item;
-
-        private double itemCount;
         public double ItemCount
         {
-            get => itemCount;
+            get => StationCount * Amount;
             set
             {
-                itemCount = value;
-                stationCount = value / Recipe.Amount;
+                stationCount = value / Amount;
                 UpdateRow();
             }
         }
@@ -57,7 +56,6 @@ namespace x4StationPlanner
             set
             {
                 stationCount = value;
-                itemCount = value * Recipe.Amount;
                 UpdateRow();
             }
         }

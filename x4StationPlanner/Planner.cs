@@ -19,10 +19,10 @@ namespace x4StationPlanner
         {
             _RequiredFactoryGroups = new ReadOnlyObservableCollection<FactoryGroup>(_requiredFactoryGroups);
 
-            foreach (var kvp in Map.ItemFactionMap.Where(x => Map.RecipeMap[x.Key].Keys.Count > 1))
-                ItemFactions.Add(new ItemFaction { Item = kvp.Key, Faction = kvp.Value , Options = Map.RecipeMap[kvp.Key].Keys.ToList()});
+            foreach (var kvp in Map.ItemFactionMap)
+                ItemsSettings.Add(new ItemSettings { Item = kvp.Key, Faction = kvp.Value, Options = Map.RecipeMap[kvp.Key].Keys.ToList() });
 
-            foreach (INotifyPropertyChanged it in ItemFactions)
+            foreach (INotifyPropertyChanged it in ItemsSettings)
                 it.PropertyChanged += UpdateItemFactionSetting;
         }
 
@@ -56,11 +56,11 @@ namespace x4StationPlanner
             }
         }
 
-        public ObservableCollection<ItemFaction> ItemFactions = new ObservableCollection<ItemFaction>();
+        public ObservableCollection<ItemSettings> ItemsSettings = new ObservableCollection<ItemSettings>();
 
         public void UpdateItemFactionSetting(object o, PropertyChangedEventArgs e)
         {
-            var ItemFaction = (ItemFaction)o;
+            var ItemFaction = (ItemSettings)o;
             Map.ItemFactionMap[ItemFaction.Item] = ItemFaction.Faction;
         }
 

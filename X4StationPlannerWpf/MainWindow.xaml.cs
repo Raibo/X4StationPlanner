@@ -55,6 +55,7 @@ namespace X4StationPlannerWpf
         private void Button_Factions_Click(object sender, RoutedEventArgs e)
         {
             factionsWindow.Show();
+            factionsWindow.Activate();
         }
     }
 }

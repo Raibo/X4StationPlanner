@@ -7,6 +7,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Controls;
+using System.Windows.Data;
 using x4StationPlanner;
 using x4StationPlanner.Maps;
 
@@ -49,7 +50,7 @@ namespace X4StationPlannerWpf
                         it.PropertyChanged += (x, y) => UpdateRequiredFactoryGroupsGui();
             };
 
-            foreach (INotifyPropertyChanged it in ItemFactions)
+            foreach (INotifyPropertyChanged it in ItemsSettings)
             {
                 it.PropertyChanged += UpdateStationsCount;
                 it.PropertyChanged += (x, y) => UpdateRequiredFactoryGroupsGui();
@@ -66,9 +67,9 @@ namespace X4StationPlannerWpf
 
         private void UpdateStationsCount(object o, PropertyChangedEventArgs e)
         {
-            var items = DesiredFactoryGroups.Where(x => x.Item == ((ItemFaction)o).Item).ToList();
+            var items = DesiredFactoryGroups.Where(x => x.Item == ((ItemSettings)o).Item).ToList();
             foreach (var it in items)
-                it.StationCount = it.ItemCount / it.Recipe.Amount;
+                it.StationCount = it.ItemCount / it.Amount;
         }
 
         private Planner _planner;
@@ -81,9 +82,18 @@ namespace X4StationPlannerWpf
 
         public IEnumerable<string> ItemList => Map.RecipeMap.Keys.OrderBy(x => x.ToString());
 
-        public ObservableCollection<ItemFaction> ItemFactions => _planner.ItemFactions;
+        public ObservableCollection<ItemSettings> ItemsSettings => _planner.ItemsSettings;
 
         public ObservableCollection<ItemQuantity> TotalRawResources => new ObservableCollection<ItemQuantity>(_planner.TotalRawResources);
 
+        public void CheckAllWorkforce(bool val)
+        {
+            foreach (var it in Map.ItemWorkforceMap.Keys.ToList())
+                Map.ItemWorkforceMap[it] = val;
+            // TODO: Make propertyChanged of items (somehow)
+            foreach (var it in DesiredFactoryGroups)
+                it.StationCount = it.StationCount;
+            RaisePropertyChanged(nameof(RequiredFactoryGroups));
+        }
     }
 }
