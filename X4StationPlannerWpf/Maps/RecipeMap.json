@@ -493,6 +493,37 @@
         "Swamp plant": 720
       }
     }
+  },
+  "Workforce": {
+    "Argon": {
+      "Amount": 1,
+      "WorkforceMultiplier": 1,
+      "WorkforceCapacity": 0,
+      "Ingredients": {
+        "*Workforce": 1,
+        "*Food ration": 1.125,
+        "*Medical supply": 0.675
+      }
+    },
+    "Paranid": {
+      "Amount": 1,
+      "WorkforceMultiplier": 1,
+      "WorkforceCapacity": 0,
+      "Ingredients": {
+        "*Workforce": 1,
+        "*Soja husk": 0.714,
+        "*Medical supply": 0.675
+      }
+    },
+    "Teladi": {
+      "Amount": 1,
+      "WorkforceMultiplier": 1,
+      "WorkforceCapacity": 0,
+      "Ingredients": {
+        "*Workforce": 1,
+        "*Nostrop oil": 0.57,
+        "*Medical supply": 0.675
+      }
+    }
   }
-
 }

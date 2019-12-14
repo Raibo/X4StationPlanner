@@ -7,6 +7,6 @@ namespace x4StationPlanner
         public double WorkforceMultiplier;
         public int WorkforceCapacity;
         public int Amount;
-        public Dictionary<string, int> Ingredients;
+        public Dictionary<string, double> Ingredients;
     }
 }

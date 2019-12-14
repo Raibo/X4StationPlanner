@@ -12,11 +12,15 @@ namespace x4StationPlanner.Maps
         const string ItemTypeSortMapPath = @"Maps\ItemTypeSortMap.json";
         const string ItemFactionMapPath = @"Maps\ItemFactionMap.json";
 
+        public const string WorkforceRecipeName = "Workforce";
+
         public static readonly Dictionary<string, Dictionary<string, Recipe>> RecipeMap;
         public static readonly Dictionary<string, string> ItemTypeMap;
         public static readonly Dictionary<string, int> ItemTypeSortMap;
         public static readonly Dictionary<string, string> ItemFactionMap;
         public static readonly Dictionary<string, bool> ItemWorkforceMap;
+
+        public static readonly Dictionary<string, Recipe> WorkforceRecipes;
 
         static Map()
         {
@@ -26,7 +30,15 @@ namespace x4StationPlanner.Maps
             ItemFactionMap = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(ItemFactionMapPath));
 
             ItemWorkforceMap = RecipeMap.Keys.ToDictionary(x => x, x => false);
+
+            if (RecipeMap.ContainsKey(WorkforceRecipeName))
+            {
+                WorkforceRecipeFound = true;
+                WorkforceRecipes = RecipeMap[WorkforceRecipeName];
+            }
         }
+
+        public static bool WorkforceRecipeFound = false;
 
         public static void SaveFactionSettings()
         {

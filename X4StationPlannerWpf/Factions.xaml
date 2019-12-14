@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:X4StationPlannerWpf"
         mc:Ignorable="d"
-        Title="Settings" Height="300" Width="366" WindowStyle="ToolWindow" MinWidth="366" MaxWidth="366" ShowInTaskbar="False">
+        Title="Settings" Height="450" Width="367" WindowStyle="ToolWindow" MinWidth="367" MaxWidth="367" ShowInTaskbar="False">
 
     <Grid HorizontalAlignment="Left" Width="Auto">
         <Grid.RowDefinitions>
@@ -13,17 +13,17 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="367"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" TextWrapping="NoWrap" IsEnabled="False" Padding="5">
-            Configure which faction recipe to use for each ware.
+        <TextBlock Grid.Row="0" TextWrapping="Wrap" IsEnabled="False" Padding="5" Width="Auto">
+            Note that production with and without workforce should be built <LineBreak/>in different complexes.
         </TextBlock>
 
         <DataGrid x:Name="FactionsGrid" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ItemsSettings}" AutoGenerateColumns="False" 
-                  CanUserAddRows="False" CanUserDeleteRows="False" Width="Auto" CanUserResizeColumns="False"
-                  RowBackground="#a4eefc"
-                  AlternatingRowBackground="#47d1ff">
+                  CanUserAddRows="False" CanUserDeleteRows="False" Width="351" CanUserResizeColumns="False"
+                  RowBackground="#a4eefc" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden"
+                  AlternatingRowBackground="#47d1ff" Margin="-16,0,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Item" Binding="{Binding Path=Item, Mode=OneWay}"/>
                 <DataGridTemplateColumn Header=" " Width="18">
@@ -34,7 +34,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="F#" Binding="{Binding Path=Options.Count}"/>
-                <DataGridTemplateColumn Header="Faction">
+                <DataGridTemplateColumn Header="Faction" Width="80">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ComboBox ItemsSource="{Binding Path=Options}"

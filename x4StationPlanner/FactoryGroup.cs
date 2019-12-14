@@ -61,15 +61,16 @@ namespace x4StationPlanner
         }
 
         public int StationCountCeil => (int)Math.Ceiling(StationCount);
+        public int Workers => RespectWorkforce ? StationCountCeil * Recipe.WorkforceCapacity : 0;
 
         public List<FactoryGroup> RequiredStations
         {
             get
             {
-                var result = new List<FactoryGroup>();
-                result.Add(this);
+                var result = new List<FactoryGroup> { this };
+
                 foreach (var x in Recipe.Ingredients)
-                    if (Map.RecipeMap.TryGetValue(x.Key, out var recipe))
+                    if (Map.RecipeMap.ContainsKey(x.Key))
                     {
                         var rs = new FactoryGroup(x.Key) { ItemCount = x.Value * stationCount };
                         result.AddRange(rs.RequiredStations);

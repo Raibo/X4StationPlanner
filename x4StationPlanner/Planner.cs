@@ -49,7 +49,9 @@ namespace x4StationPlanner
         {
             get
             {
+
                 var items = FactoryGroup.SumStations(DesiredFactoryGroups.SelectMany(x => x.RequiredStations));
+
                 _requiredFactoryGroups.Clear();
                 _requiredFactoryGroups.AddRange(items);
                 return _RequiredFactoryGroups;
@@ -64,15 +66,23 @@ namespace x4StationPlanner
             Map.ItemFactionMap[ItemFaction.Item] = ItemFaction.Faction;
         }
 
+        public int WorkersCount => _requiredFactoryGroups.Sum(x => x.Workers);
+
         public IEnumerable<ItemQuantity> TotalRawResources
         {
             get
             {
                 var rez = new Dictionary<string, double>();
-                foreach (var it in _requiredFactoryGroups)
+                var requiredFactoryGroupsWithWorkforce = _requiredFactoryGroups.ToList();
+                var workersCount = WorkersCount;
+                if (workersCount > 0)
+                    requiredFactoryGroupsWithWorkforce.Add(new FactoryGroup(Map.WorkforceRecipeName) { ItemCount = workersCount });
+
+                foreach (var it in requiredFactoryGroupsWithWorkforce)
                     foreach (var it2 in it.RawResources)
                         if (rez.ContainsKey(it2.Key)) rez[it2.Key] += it2.Value * it.StationCount; 
                         else rez[it2.Key] = it2.Value * it.StationCount;
+
                 return rez.AsEnumerable().Select(x => new ItemQuantity(x.Key, x.Value));
             }
         }
