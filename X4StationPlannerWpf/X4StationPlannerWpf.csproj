@@ -110,7 +110,6 @@
     <None Include="Maps\ItemFactionMap.json" />
     <None Include="Maps\ItemTypeMap.json" />
     <None Include="Maps\ItemTypeSortMap.json" />
-    <None Include="Maps\FactionRecipeMap.json" />
     <None Include="Maps\RecipeMap.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -156,6 +155,9 @@
     <Resource Include="Images\Faction_Common.jpg" />
     <Resource Include="Images\Faction_Paranid.jpg" />
     <Resource Include="Images\Faction_Teladi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Faction_Terran.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

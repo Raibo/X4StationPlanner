@@ -36,5 +36,10 @@
   "Weapon component": "Common",
   "Wheat": "Argon",
   "Teladianium": "Teladi",
-  "Workforce":  "Argon"
+  "Computronic substrate": "Terran",
+  "Metallic microlattice": "Terran",
+  "Silicon carbide": "Terran",
+  "Protein paste": "Terran",
+  "Terran MRE": "Terran",
+  "Workforce": "Argon"
 }

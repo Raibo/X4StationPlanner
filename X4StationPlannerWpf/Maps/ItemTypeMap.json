@@ -43,5 +43,10 @@
   "Water": "RefinedResource",
   "Weapon component": "TechProduct",
   "Wheat": "FoodIntermediate",
+  "Computronic substrate": "Intermediate_Tech",
+  "Metallic microlattice": "Intermediate_Tech",
+  "Silicon carbide": "Intermediate_Tech",
+  "Protein paste": "FoodIntermediate",
+  "Terran MRE": "FoodProduct",
   "Teladianium": "RefinedResource"
 }

@@ -6,6 +6,13 @@
       "WorkforceCapacity": 60,
       "Ingredients": {
       }
+    },
+    "Terran": {
+      "Amount": 3000,
+      "WorkforceMultiplier": 1.00,
+      "WorkforceCapacity": 45,
+      "Ingredients": {
+      }
     }
   },
   "Antimatter cell": {
@@ -331,6 +338,44 @@
       }
     }
   },
+  "Computronic substrate": {
+    "Terran": {
+      "Amount": 588,
+      "WorkforceMultiplier": 1.00,
+      "WorkforceCapacity": 1500,
+      "Ingredients": {
+        "Energy cell": 24000,
+        "Hydrogen": 12000,
+        "Ore": 18000,
+        "Silicon": 18000
+      }
+    }
+  },
+  "Metallic microlattice": {
+    "Terran": {
+      "Amount": 3800,
+      "WorkforceMultiplier": 1.00,
+      "WorkforceCapacity": 120,
+      "Ingredients": {
+        "Energy cell": 1000,
+        "Helium": 2600,
+        "Ore": 1000
+      }
+    }
+  },
+  "Silicon carbide": {
+    "Terran": {
+      "Amount": 576,
+      "WorkforceMultiplier": 1.00,
+      "WorkforceCapacity": 750,
+      "Ingredients": {
+        "Energy cell": 2400,
+        "Metallic microlattice": 24,
+        "Methane": 4800,
+        "Silicon": 3600
+      }
+    }
+  },
   "Meat": {
     "Argon": {
       "Amount": 1760,
@@ -377,6 +422,29 @@
       }
     }
   },
+  "Terran MRE": {
+    "Terran": {
+      "Amount": 2625,
+      "WorkforceMultiplier": 1.00,
+      "WorkforceCapacity": 135,
+      "Ingredients": {
+        "Energy cell": 900,
+        "Protein paste": 900
+      }
+    }
+  },
+  "Protein paste": {
+    "Terran": {
+      "Amount": 2628,
+      "WorkforceMultiplier": 1.00,
+      "WorkforceCapacity": 180,
+      "Ingredients": {
+        "Energy cell": 960,
+        "Ice": 960,
+        "Methane": 2400
+      }
+    }
+  },
   "Medical supply": {
     "Argon": {
       "Amount": 1440,
@@ -409,6 +477,16 @@
         "Spice": 360,
         "Water": 720,
         "Soja bean": 120
+      }
+    },
+    "Terran": {
+      "Amount": 1680,
+      "WorkforceMultiplier": 1.00,
+      "WorkforceCapacity": 90,
+      "Ingredients": {
+        "Energy cell": 1200,
+        "Ice": 600,
+        "Protein paste": 288
       }
     }
   },
